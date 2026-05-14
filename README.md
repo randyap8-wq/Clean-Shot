@@ -81,4 +81,4 @@ npm login
 npm publish
 ```
 
-`prepublishOnly` ensures the build runs before publish, and only `dist/` and `README.md` are shipped.
+`prepublishOnly` ensures the build runs before publish, and the published package includes the built `dist/` output along with standard metadata/docs files such as `README.md`, `LICENSE`, and `package.json`.
