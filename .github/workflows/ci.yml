@@ -17,4 +17,4 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - run: npx tsc --noEmit index.ts --target ES2022 --module NodeNext --moduleResolution NodeNext --esModuleInterop --skipLibCheck
+      - run: npm run typecheck
