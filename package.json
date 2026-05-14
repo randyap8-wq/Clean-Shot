@@ -1,0 +1,31 @@
+{
+  "name": "clean-shot",
+  "version": "1.0.0",
+  "description": "High-performance CLI utility to sanitize and beautify shared code snippets.",
+  "type": "module",
+  "bin": {
+    "clean-shot": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc index.ts --target ES2022 --module NodeNext --moduleResolution NodeNext --outDir dist --esModuleInterop --skipLibCheck",
+    "start": "node dist/index.js",
+    "dev": "tsx index.ts --dry-run"
+  },
+  "keywords": [
+    "cli",
+    "clipboard",
+    "sanitizer",
+    "markdown",
+    "typescript"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "clipboardy": "^4.0.0",
+    "prettier": "^3.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
