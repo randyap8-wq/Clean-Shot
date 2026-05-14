@@ -2,11 +2,17 @@
 set -euo pipefail
 
 OUT="$HOME/clean-shot.applescript"
+CLEAN_SHOT_BIN="$(command -v clean-shot || true)"
 
-cat > "$OUT" <<'APPLESCRIPT'
+if [ -z "$CLEAN_SHOT_BIN" ]; then
+  echo "Error: clean-shot was not found in PATH. Install it first, then rerun this setup script." >&2
+  exit 1
+fi
+
+cat > "$OUT" <<APPLESCRIPT
 on run
   set theText to the clipboard
-  set cleaned to do shell script "/usr/bin/env printf %s " & quoted form of theText & " | clean-shot"
+  set cleaned to do shell script "/usr/bin/env printf %s " & quoted form of theText & " | " & quoted form of "${CLEAN_SHOT_BIN}"
   set the clipboard to cleaned
 end run
 APPLESCRIPT
