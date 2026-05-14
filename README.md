@@ -14,7 +14,17 @@ Clean-Shot is a fast Node/TypeScript CLI that turns clipboard (or piped) snippet
 - Uses a Tech-Noir terminal style with high-contrast success green (`#00FF41`)
 - `--dry-run` preview mode that does not overwrite clipboard contents
 
+[![CI](https://github.com/randyap8-wq/Clean-Shot/actions/workflows/ci.yml/badge.svg)](https://github.com/randyap8-wq/Clean-Shot/actions/workflows/ci.yml)
+
 ## Install
+
+From npm:
+
+```bash
+npm install -g clean-shot
+```
+
+From source:
 
 ```bash
 npm install
@@ -45,8 +55,30 @@ clean-shot --dry-run
 ## Development
 
 ```bash
-npm run build
-npm run dev
+npm run build      # compile to ./dist
+npm run dev        # run index.ts directly via tsx (dry-run)
+npm run typecheck  # type-check without emitting
 ```
 
 `npm run dev` runs `index.ts` directly in dry-run mode with `tsx`.
+
+## macOS global shortcut
+
+Run the helper to generate an AppleScript that pipes the clipboard through `clean-shot`:
+
+```bash
+./scripts/setup-mac-shortcut.sh
+```
+
+The script prints instructions for binding it to ⌘⇧X via Automator or the Shortcuts app.
+
+## Publishing
+
+CI runs `npm run build` and a type-check on every push and PR to `main`. To release:
+
+```bash
+npm login
+npm publish
+```
+
+`prepublishOnly` ensures the build runs before publish, and only `dist/` and `README.md` are shipped.

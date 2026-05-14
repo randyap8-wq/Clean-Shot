@@ -6,10 +6,16 @@
   "bin": {
     "clean-shot": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc index.ts --target ES2022 --module NodeNext --moduleResolution NodeNext --outDir dist --esModuleInterop --skipLibCheck",
     "start": "node dist/index.js",
-    "dev": "tsx index.ts --dry-run"
+    "dev": "tsx index.ts --dry-run",
+    "typecheck": "tsc --noEmit index.ts --target ES2022 --module NodeNext --moduleResolution NodeNext --esModuleInterop --skipLibCheck",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "cli",
