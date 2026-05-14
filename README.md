@@ -82,3 +82,15 @@ npm publish
 ```
 
 `prepublishOnly` ensures the build runs before publish, and the published package includes the built `dist/` output along with standard metadata/docs files such as `README.md`, `LICENSE`, and `package.json`.
+
+---
+
+<p align="center">
+  <a href="https://amalgafy.com">
+    <img src="public/amalgafy-icon.svg" alt="Amalgafy" width="200" />
+  </a>
+</p>
+
+<p align="center">
+  Built by the <a href="https://amalgafy.com"><strong>Amalgafy</strong></a> team.
+</p>
